@@ -75,7 +75,7 @@ router.delete("/books/:name",async(req,res)=>{
     })
 })
 
-
+/*
 router.post('/users',async(req,res)=>{
     
     //generate salt key
@@ -103,7 +103,7 @@ router.post('/users',async(req,res)=>{
     })
 
 })
-
+*/
 
 
 
