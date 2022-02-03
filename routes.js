@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var Movie = require('./Models/book')
+/*
 var User = require('./Models/User')
 var bcrypt = require('bcryptjs')
 var jwt = require('jsonwebtoken')
+*/
 
 
 
@@ -17,7 +19,7 @@ router.get('/books',async(req,res)=>{
 router.post("/books",async(req,res)=>{
     const imovie = new Movie({
         name:req.body.name,
-        rating:req.body.like
+        like:req.body.like
     })
 
     await imovie.save((err,msg)=>{
@@ -45,12 +47,12 @@ router.patch('/books/:id',async (req,res)=>{
     await imovie.save((err,msg)=>{
         if(err){
             res.status(500).json({
-                error:err
+                "error":err
             })
         }
         else{
             res.status(200).json({
-                msg:msg
+                "msg":msg
             })
         }
     })
@@ -63,12 +65,12 @@ router.delete("/books/:name",async(req,res)=>{
     await Movie.deleteOne({name:req.params.name},(err,msg)=>{
         if(err){
             res.status(500).json({
-                error:err
+                "error":err
             })
         }
         else{
             res.status(200).json({
-                msg:msg
+                "msg":msg
             })
         }
 
@@ -103,8 +105,8 @@ router.post('/users',async(req,res)=>{
     })
 
 })
-*/
 
+*/
 
 
 
