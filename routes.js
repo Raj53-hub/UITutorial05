@@ -25,12 +25,12 @@ router.post("/books",async(req,res)=>{
     await imovie.save((err,msg)=>{
         if(err){
             res.status(500).json({
-                "error":err
+                error:err
             })
         }
         else{
             res.status(200).json({
-                "My-message":msg
+                message:msg
             })
         }
     })
