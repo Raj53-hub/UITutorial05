@@ -61,52 +61,12 @@ router.patch('/books/:id',async (req,res)=>{
 
 //delete api
 
-router.delete("/books/:name",async(req,res)=>{
-    await Movie.deleteOne({name:req.params.name},(err,msg)=>{
-        if(err){
-            res.status(500).json({
-                "error":err
-            })
-        }
-        else{
-            res.status(200).json({
-                "msg":msg
-            })
-        }
 
-    })
+router.delete('/books/:id', async (request, response) => {   // delete by id
+    const _id = request.params.id;
+    const imovie = await Movie.findByIdAndDelete(_id);
+    response.send(imovie);
 })
-
-/*
-router.post('/users',async(req,res)=>{
-    
-    //generate salt key
-    salt = await bcrypt.genSalt(10)
-    console.log(salt)
-
-    hashedpswd = await bcrypt.hash(req.body.password,salt)
-    console.log(hashedpswd)
-
-    const iuser = new User({
-        uname:req.body.uname,
-        password:hashedpswd
-    })  
-    await iuser.save((err,msg)=>{
-        if(err){
-            res.status(500).json({
-                "error":err
-            })
-        }
-        else{
-            res.status(200).json({
-                "My-message":msg
-            })
-        }
-    })
-
-})
-
-*/
 
 
 
